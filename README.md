@@ -1,5 +1,5 @@
 # youtube_data_api
-Accessing data from Youtube Data API v3 and writing them to csv files after analysis
+Accessing data from Youtube Data API v3 and writing them to json file -> csv files after analysis
 
 --How to run the code--
 
