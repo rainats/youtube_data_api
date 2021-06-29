@@ -14,6 +14,7 @@ def myFunc2(e):
   return e["Time_Duration"]
 
 def string_search(kw,str_dur):
+    #searching for the string between 2 chars/strings
     try:
         found = int(re.search(kw,str_dur).group(1))
     except AttributeError:
@@ -23,6 +24,7 @@ def string_search(kw,str_dur):
     return found
 
 def time_format(time_list):
+    #converting the time data into integer(secs)
     format_time_list = []
 
     for i in time_list:
@@ -42,12 +44,13 @@ def time_format(time_list):
 def analysis(data,tags_list,time_list):
     #arranging tags in order of video count for each tag
     #arranging tags in order of video duration
-#data,tags_list,time_list = json_csv(" ")
 
     format_time_list = time_format(time_list)
 
     unique_tags,data_tags = ([] for i in range(2))
 
+    #extracting unique tags and creating a list of dictionaries
+    # of the format {"Tags":,"Video_Count":,"Time_Duration":}
     for i,time in zip(tags_list,format_time_list):
         for j in i:
             k = j.strip()
@@ -60,19 +63,29 @@ def analysis(data,tags_list,time_list):
                     data_tags[dup_tag_index]["Video_Count"]+=1
                     data_tags[dup_tag_index]["Time_Duration"]+=time
 
+    #finding the average time from the sum of video durations
     index = 0
     for i in data_tags:
         avg_time = float(i["Time_Duration"]/i["Video_Count"])
         data_tags[index]["Time_Duration"] = avg_time
         index+=1
 
-    data_tags.sort(reverse=True,key=myFunc1)
+    write_file(data_tags)     #writing the data to the csv files
 
+
+def write_file(data_tags):
+
+    #getting the path to results folder where final results
+    #will be stored
     dest_dir = os.path.split(os.getcwd())[0] + '/results'
+
+    #writing the data with tags and video count for each tag into csv file
+    data_tags.sort(reverse=True,key=myFunc1)
 
     fields_1 = ['Tags','Video_Count']
     dict_to_csv(dest_dir+'/'+"tag_vs_videocount.csv",fields_1,data_tags)
 
+    #writing the data with tags and avg video duration for each tag into csv file
     data_tags.sort(reverse=True,key=myFunc2)
 
     fields_2 = ['Tags','Time_Duration']

@@ -11,7 +11,7 @@ def norm_uni(elem):
     return normalize('NFKD',elem).encode('ascii', 'ignore')
 
 
-def json_csv(csvfilewrite):
+def json_csv():
     jsondata = jload("main_data.json")
 
     #creating a list of list of tags from all videos
@@ -32,10 +32,9 @@ def json_csv(csvfilewrite):
 
             index +=1
 
-    if csvfilewrite is "True":
-        #writing to a csv file
-        fields = ['duration','tags']
-        filename = "main_data.csv"
-        dict_to_csv(filename,fields,jsondata)
+    #writing to a csv file
+    fields = ['duration','tags']
+    filename = "main_data.csv"
+    dict_to_csv(filename,fields,jsondata)
 
     return jsondata,tags_list,time_list
