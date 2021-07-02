@@ -10,4 +10,15 @@ Accessing data from Youtube Data API v3 and writing them to json file -> csv fil
 						 Please contact the developer if you wish to be granted access.)
  - Click on 'allow' for everything.
  - Copy the authorisation code that is displayed finally and paste it in the terminal and press enter.
-3. The results will be stored in the 'results' folder in csv files.
+3. The results will be stored in the 'results' folder in csv files.ag
+
+
+--Functionalities--
+
+Completed
+1. Arranging the tag data in order of the number of videos using the tag
+2. Arranging the tag data in order of the average time duration of videos that use the tag
+
+TBD
+1. Tag classification based on type of video (tutorial, demos, live coding etc)
+
