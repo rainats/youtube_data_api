@@ -3,7 +3,7 @@ Accessing data from Youtube Data API v3 and writing them to json file -> csv fil
 
 --How to run the code--
 
-1. Run the file 'main.py' in the folder 'src' using the command 'python main.py' from terminal.
+1. Run the file 'main.py' in the folder 'src' using the command 'python main.py' from terminal (NOTE : Use your own client_secret.json file. Not included in github with this project. Path to file can be altered in api_call.py file)
 2. You will be asked to click on a link to authorize the application in order to access the required YouTUbe data.
  - Click on the url provided.
  - Login using your youtube/email account (NOTE : You will be allowed access only if your email ID has been authorised by the developer.
